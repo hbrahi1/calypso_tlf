@@ -1,0 +1,9 @@
+	<div role="alert" th:if="${statusMessage}" th:class="'alert ' + ${statusMessageClass}?: 'alert-info'" th:text="${statusMessage}" />
+	<div role="alert" th:if="${param.logout}" class="alert alert-info">
+		<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+		You have been logged out
+	</div>
+	<div role="alert" th:if="${param.error}" class="alert alert-danger">
+		<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+		There was an error, please try again.
+	</div>

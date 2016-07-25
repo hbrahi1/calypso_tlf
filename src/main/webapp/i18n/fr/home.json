@@ -1,9 +1,0 @@
-{
-    "home": {
-        "title": "Bienvenue, Calypso !",
-        "subtitle": "Ceci est votre page d'accueil",
-        "logged": {
-            "message": "Vous êtes connecté en tant que \"{{username}}\"."
-        }
-    }
-}

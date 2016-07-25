@@ -1,9 +1,17 @@
 package com.calypso.config;
 
-import com.codahale.metrics.MetricRegistry;
-import com.codahale.metrics.servlet.InstrumentedFilter;
-import com.codahale.metrics.servlets.MetricsServlet;
-import com.calypso.web.filter.CachingHttpHeadersFilter;
+import java.io.File;
+import java.nio.file.Paths;
+import java.util.Arrays;
+import java.util.EnumSet;
+
+import javax.inject.Inject;
+import javax.servlet.DispatcherType;
+import javax.servlet.FilterRegistration;
+import javax.servlet.ServletContext;
+import javax.servlet.ServletException;
+import javax.servlet.ServletRegistration;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,11 +27,10 @@ import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 import org.springframework.web.filter.CorsFilter;
 
-import java.io.File;
-import java.nio.file.Paths;
-import java.util.*;
-import javax.inject.Inject;
-import javax.servlet.*;
+import com.calypso.web.filter.CachingHttpHeadersFilter;
+import com.codahale.metrics.MetricRegistry;
+import com.codahale.metrics.servlet.InstrumentedFilter;
+import com.codahale.metrics.servlets.MetricsServlet;
 
 /**
  * Configuration of web application with Servlet 3.0 APIs.
@@ -41,6 +48,7 @@ public class WebConfigurer implements ServletContextInitializer, EmbeddedServlet
 
     @Autowired(required = false)
     private MetricRegistry metricRegistry;
+
 
     @Override
     public void onStartup(ServletContext servletContext) throws ServletException {
@@ -164,4 +172,8 @@ public class WebConfigurer implements ServletContextInitializer, EmbeddedServlet
         h2ConsoleServlet.setInitParameter("-properties", "src/main/resources/");
         h2ConsoleServlet.setLoadOnStartup(1);
     }
+    
+
+    
+
 }

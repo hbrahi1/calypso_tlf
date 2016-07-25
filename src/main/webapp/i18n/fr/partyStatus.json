@@ -1,9 +1,0 @@
-{
-    "calypsoApp": {
-        "PartyStatus" : {
-            "null": "",
-            "ACTIVE": "ACTIVE",
-            "INACTIVE": "INACTIVE"
-        }
-    }
-}

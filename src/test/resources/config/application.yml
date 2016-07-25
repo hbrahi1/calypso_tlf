@@ -39,9 +39,6 @@ spring:
     thymeleaf:
         mode: XHTML
 
-liquibase:
-    contexts: test
-
 security:
     basic:
         enabled: false
